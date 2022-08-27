@@ -95,20 +95,22 @@ namespace SensorNotePrj
                     //        $"Velo: {velocity} ");
                     //    Instantiate(prefab, this.transform.position + new Vector3(0, 1, time), Quaternion.identity);
                     //}
-
-
+                    
+                    if (midiEvent.MidiEventType == MidiEventType.NoteOn)
+                    {
+                        
+                    }
+                    if (preTime <= 0f)
+                    {
+                        preTime = midiEvent.Time;
+                    }
                     var time = midiEvent.Time;
-
-                    //preTime = midiEvent.Time;
-
-                    //if (preTime <= time)
-                    //{
-                    //    preTime 
-                    //}
-
-                    //var t = time * timeRate;
-
-                    //var dis = preTime < time ? time - preTime : preTime = time;
+                    var dis = 0f;
+                    if (preTime <= time)
+                    {
+                        dis = time - preTime;
+                        preTime = time;
+                    }
 
                     var channel = midiEvent.Channel;
                     var note = midiEvent.Note;
@@ -117,10 +119,13 @@ namespace SensorNotePrj
                         $"Time: {time} " +
                         $"Note: {note} " +
                         $"Velo: {velocity} ");
-                    int rand = Random.Range(0, 5);
 
-                    //Instantiate(prefab, this.transform.position + new Vector3(lane[rand], 1, dis), Quaternion.identity);
+                    if (note == 45)
+                    {
+                        int rand = Random.Range(0, 5);
 
+                        Instantiate(prefab, this.transform.position + new Vector3(lane[rand], 1, dis), Quaternion.identity);
+                    }
                 }
             }
         }
