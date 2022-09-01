@@ -34,7 +34,7 @@ public class Player_Input : MonoBehaviour
         //print(Input.mousePosition.x);
 
         //lastMousePoint = Input.GetAxis("Mouse X");
-
+        //
         //float difference = Input.GetAxis("Mouse X") - lastMousePoint;
         //tf.transform.position = new Vector3(tf.transform.position.x + (difference / 188), tf.transform.position.y, tf.transform.position.z);
         //lastMousePoint = Input.GetAxis("Mouse X");
