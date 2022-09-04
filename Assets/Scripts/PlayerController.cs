@@ -26,5 +26,16 @@ public class PlayerController : MonoBehaviour
             var posX = Mathf.Clamp(hit.point.x, -4f, 4f);
             this.transform.position = new Vector3(posX, transform.position.y, transform.position.z);
         }
+
+        if(Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if(touch.phase == TouchPhase.Moved)
+            {
+                var posX = Mathf.Clamp(hit.point.x, -4f, 4f);
+                transform.position = new Vector3(posX, transform.position.y, transform.position.z);
+            }
+        }
     }
 }
